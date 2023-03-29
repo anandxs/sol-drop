@@ -9,38 +9,20 @@
 		<input type="text" id="input-field" name="input-field">
 		<button type="submit" id="submit-button">Submit</button>
 	</form>
-
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js"></script>
     <script>
         const { Connection, PublicKey, LAMPORTS_PER_SOL } = solanaWeb3;
     </script>
 	<script>
         const SOLANA_CONNECTION = new Connection("https://api.devnet.solana.com");
-
-        // const WALLET_ADDRESS = 'YOUR_PHANTOM_WALLET_ADDRESS'; //👈 Replace with your wallet address
         const AIRDROP_AMOUNT = 1 * LAMPORTS_PER_SOL; // 1 SOL 
-
-        // Get the form element
 		const form = document.getElementById("my-form");
-
-        // Add a submit event listener to the form
         form.addEventListener("submit", function(event) {
-            // Prevent the form from reloading the page
             event.preventDefault();
-
-            // Get the input field element
             const inputField = document.getElementById("input-field");
-
-            // Get the value of the input field
             const WALLET_ADDRESS = inputField.value;
-
-            // Do something with the input value (in this case, just log it to the console)
             console.log("The input value is:", WALLET_ADDRESS);
-
-            // Reset the input field
             inputField.value = "";
-
-            // airdrop request
             (async () => {
                 console.log(`Requesting airdrop for ${WALLET_ADDRESS}`)
                 const signature = await SOLANA_CONNECTION.requestAirdrop(
@@ -56,7 +38,6 @@
                 console.log(`Tx Complete: https://explorer.solana.com/tx/${signature}?cluster=devnet`)
             })();
         });
-
 	</script>
 </body>
 </html>
