@@ -1,12 +1,16 @@
 const SOLANA_CONNECTION = new Connection("https://api.devnet.solana.com");
-const AIRDROP_AMOUNT = 1 * LAMPORTS_PER_SOL; // 1 SOL 
 const form = document.getElementById("form");
 form.addEventListener("submit", function(event) {
     event.preventDefault();
     const inputField = document.getElementById("public-key");
     const WALLET_ADDRESS = inputField.value;
-    console.log("The input value is:", WALLET_ADDRESS);
+    console.log("Wallet address :", WALLET_ADDRESS);
+    const quantity = document.getElementById('airdrop-quantity');
+    const AIRDROP_AMOUNT = quantity.value * LAMPORTS_PER_SOL;
+    console.log('AIRDROP-AMOUNT: ', AIRDROP_AMOUNT);
     inputField.value = "";
+    quantity.value = 1;
+
     (async () => {
         console.log(`Requesting airdrop for ${WALLET_ADDRESS}`)
         const signature = await SOLANA_CONNECTION.requestAirdrop(
