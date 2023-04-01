@@ -12,11 +12,17 @@
         <div class="container" id="input-form">
             <h1 class="text-center mt-5 mb-5">AIRDROP SOL HERE</h1>
             <form id="form">
-                <div class="mb-3">
-                  <label for="public-key" class="form-label">Wallet Address / Public key</label>
-                  <input type="text" class="form-control" id="public-key" aria-describedby="emailHelp">
+                <div class="row">
+                    <div class="col-10">
+                        <label for="public-key" class="form-label">Wallet Address / Public key</label>
+                        <input type="text" class="form-control" id="public-key" aria-describedby="emailHelp">
+                    </div>
+                    <div class="col-2">
+                        <label for="airdrop-quantity" class="form-label">Airdop Quantity</label>
+                        <input type="number" class="form-control" id="airdrop-quantity" aria-describedby="emailHelp" value="1">
+                    </div>
                 </div>
-                <div class="d-grid gap-2">
+                <div class="d-grid gap-2 mt-3">
                     <input class="btn btn-danger" type="submit" value="Airdrop">
                 </div>
             </form>
