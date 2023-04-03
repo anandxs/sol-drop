@@ -25,5 +25,8 @@ form.addEventListener("submit", function(event) {
             signature
         },'finalized');
         console.log(`Tx Complete: https://explorer.solana.com/tx/${signature}?cluster=devnet`)
+        const pTag = document.getElementById('signature');
+        const signatureString = `<bold>Transaction Complete</bold>: <a href="https://explorer.solana.com/tx/${signature}?cluster=devnet">https://explorer.solana.com/tx/${signature}?cluster=devnet</a>`;
+        pTag.innerHTML += signatureString;
     })();
 });

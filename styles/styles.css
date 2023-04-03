@@ -1,4 +1,8 @@
 #input-form {
     /* width: 600px; */
-    height: 100vh;
+    height: 40vh;
+}
+
+#status-container {
+    height: 60vh;
 }
