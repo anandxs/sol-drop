@@ -26,20 +26,27 @@ form.addEventListener("submit", function(event) {
         pReq.textContent = `Requesting airdrop for ${WALLET_ADDRESS}`;
         statusContent.appendChild(pReq);
 
-        const signature = await SOLANA_CONNECTION.requestAirdrop(
-            new PublicKey(WALLET_ADDRESS),
-            AIRDROP_AMOUNT
-        );
-        const { blockhash, lastValidBlockHeight } = await SOLANA_CONNECTION.getLatestBlockhash();
-        await SOLANA_CONNECTION.confirmTransaction({
-            blockhash,
-            lastValidBlockHeight,
-            signature
-        },'finalized');
-        console.log(`Tx Complete: https://explorer.solana.com/tx/${signature}?cluster=devnet`)
-        
-        const pSig = document.createElement('p');
-        pSig.innerHTML = `<bold>Transaction Complete</bold>: <a href="https://explorer.solana.com/tx/${signature}?cluster=devnet">https://explorer.solana.com/tx/${signature}?cluster=devnet</a>`;
-        statusContent.appendChild(pSig);
+        try {
+            const signature = await SOLANA_CONNECTION.requestAirdrop(
+                new PublicKey(WALLET_ADDRESS),
+                AIRDROP_AMOUNT
+            );
+            const { blockhash, lastValidBlockHeight } = await SOLANA_CONNECTION.getLatestBlockhash();
+            await SOLANA_CONNECTION.confirmTransaction({
+                blockhash,
+                lastValidBlockHeight,
+                signature
+            },'finalized');
+            console.log(`Tx Complete: https://explorer.solana.com/tx/${signature}?cluster=devnet`)
+    
+            const pSig = document.createElement('p');
+            pSig.innerHTML = `<bold>Transaction Complete</bold>: <a href="https://explorer.solana.com/tx/${signature}?cluster=devnet">https://explorer.solana.com/tx/${signature}?cluster=devnet</a>`;
+            statusContent.appendChild(pSig);
+        } catch (error) {
+            console.error(error);
+            const pError = document.createElement('p');
+            pError.textContent = `Error: ${error.message}`;
+            statusContent.appendChild(pError);
+        }
     })();
 });
