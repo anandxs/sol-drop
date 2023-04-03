@@ -1,6 +1,7 @@
 const { Connection, PublicKey, LAMPORTS_PER_SOL } = solanaWeb3;
 const SOLANA_CONNECTION = new Connection("https://api.devnet.solana.com");
 const form = document.getElementById("form");
+
 form.addEventListener("submit", function(event) {
     event.preventDefault();
     document.getElementById('input-form').style.height = '40vh';
