@@ -16,6 +16,7 @@ form.addEventListener("submit", function(event) {
     const AIRDROP_AMOUNT = quantity.value * LAMPORTS_PER_SOL;
     console.log('AIRDROP-AMOUNT: ', AIRDROP_AMOUNT);
     inputField.value = "";
+    document.getElementById('submit-btn').disabled = true;
     quantity.value = 1;
 
     (async () => {
