@@ -1,8 +1,9 @@
 #input-form {
     /* width: 600px; */
-    height: 40vh;
+    height: 100vh;
 }
 
 #status-container {
     height: 60vh;
+    display: none;
 }

@@ -3,6 +3,11 @@ const SOLANA_CONNECTION = new Connection("https://api.devnet.solana.com");
 const form = document.getElementById("form");
 form.addEventListener("submit", function(event) {
     event.preventDefault();
+    document.getElementById('input-form').style.height = '40vh';
+    const statusContainer = document.getElementById('status-container');
+    statusContainer.style.height = '60vh';
+    statusContainer.style.display = 'block';
+
     const inputField = document.getElementById("public-key");
     const WALLET_ADDRESS = inputField.value;
     console.log("Wallet address :", WALLET_ADDRESS);
@@ -13,7 +18,13 @@ form.addEventListener("submit", function(event) {
     quantity.value = 1;
 
     (async () => {
+        const statusContent = document.getElementById('status-content');
+        
         console.log(`Requesting airdrop for ${WALLET_ADDRESS}`)
+        const pReq = document.createElement('p');
+        pReq.textContent = `Requesting airdrop for ${WALLET_ADDRESS}`;
+        statusContent.appendChild(pReq);
+
         const signature = await SOLANA_CONNECTION.requestAirdrop(
             new PublicKey(WALLET_ADDRESS),
             AIRDROP_AMOUNT
@@ -25,8 +36,9 @@ form.addEventListener("submit", function(event) {
             signature
         },'finalized');
         console.log(`Tx Complete: https://explorer.solana.com/tx/${signature}?cluster=devnet`)
-        const pTag = document.getElementById('signature');
-        const signatureString = `<bold>Transaction Complete</bold>: <a href="https://explorer.solana.com/tx/${signature}?cluster=devnet">https://explorer.solana.com/tx/${signature}?cluster=devnet</a>`;
-        pTag.innerHTML += signatureString;
+        
+        const pSig = document.createElement('p');
+        pSig.innerHTML = `<bold>Transaction Complete</bold>: <a href="https://explorer.solana.com/tx/${signature}?cluster=devnet">https://explorer.solana.com/tx/${signature}?cluster=devnet</a>`;
+        statusContent.appendChild(pSig);
     })();
 });
