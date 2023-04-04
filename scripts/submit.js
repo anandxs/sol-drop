@@ -7,3 +7,7 @@ function enableButton() {
         submitButton.disabled = true;
     }
 }
+
+function clearSection() {
+    document.getElementById('status-content').replaceChildren();
+}
