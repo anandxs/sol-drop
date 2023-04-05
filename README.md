@@ -3,6 +3,3 @@ This project is a web3 application that allows users to submit their wallet addr
 
 Hosted at https://sol-drop-anandxs.vercel.app/
 
-## Future updates
-- Improve UI
-
