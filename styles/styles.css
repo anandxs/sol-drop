@@ -16,3 +16,16 @@
     display: flex;
     justify-content: space-between;
 }
+
+.info-tag {
+    border-radius: 3px;
+    color: black;
+    font-weight: bold;
+    padding: 5px;
+    overflow-x: auto;
+}
+
+.info-tag > a {
+    color: rgb(255, 0, 98);
+    text-decoration: none;
+}

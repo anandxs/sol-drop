@@ -25,7 +25,8 @@ form.addEventListener("submit", function(event) {
         
         console.log(`Requesting airdrop for ${WALLET_ADDRESS}`)
         const pReq = document.createElement('p');
-        pReq.textContent = `Requesting airdrop for ${WALLET_ADDRESS}`;
+        pReq.innerHTML = `Requesting airdrop for <a href="">${WALLET_ADDRESS}</a>`;
+        pReq.className = "bg-light info-tag";
         statusContent.appendChild(pReq);
 
         try {
@@ -43,11 +44,13 @@ form.addEventListener("submit", function(event) {
     
             const pSig = document.createElement('p');
             pSig.innerHTML = `<bold>Transaction Complete</bold>: <a href="https://explorer.solana.com/tx/${signature}?cluster=devnet">https://explorer.solana.com/tx/${signature}?cluster=devnet</a>`;
+            pSig.className = "bg-success info-tag";
             statusContent.appendChild(pSig);
         } catch (error) {
             console.error(error);
             const pError = document.createElement('p');
             pError.textContent = `Error: ${error.message}`;
+            pError.className = "bg-danger info-tag"
             statusContent.appendChild(pError);
         }
     })();
