@@ -21,6 +21,7 @@ form.addEventListener("submit", function(event) {
 
     (async () => {
         const statusContent = document.getElementById('status-content');
+        statusContent.style.overflowY = "scroll";
         
         console.log(`Requesting airdrop for ${WALLET_ADDRESS}`)
         const pReq = document.createElement('p');

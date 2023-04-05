@@ -9,5 +9,7 @@ function enableButton() {
 }
 
 function clearSection() {
-    document.getElementById('status-content').replaceChildren();
+    const statusContent = document.getElementById('status-content');
+    statusContent.replaceChildren();
+    statusContent.style.overflowY = "hidden";
 }

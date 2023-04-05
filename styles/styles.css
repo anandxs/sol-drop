@@ -8,6 +8,10 @@
     display: none;
 }
 
+#status-content {
+    height: 40vh;
+}
+
 #header-section {
     display: flex;
     justify-content: space-between;
