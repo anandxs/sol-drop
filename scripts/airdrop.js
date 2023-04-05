@@ -4,9 +4,9 @@ const form = document.getElementById("form");
 
 form.addEventListener("submit", function(event) {
     event.preventDefault();
-    document.getElementById('input-form').style.height = '40vh';
+    document.getElementById('input-form').style.height = '35vh';
     const statusContainer = document.getElementById('status-container');
-    statusContainer.style.height = '60vh';
+    statusContainer.style.height = '53vh';
     statusContainer.style.display = 'block';
 
     const inputField = document.getElementById("public-key");
@@ -21,7 +21,7 @@ form.addEventListener("submit", function(event) {
 
     (async () => {
         const statusContent = document.getElementById('status-content');
-        statusContent.style.overflowY = "scroll";
+        statusContent.style.overflowY = "auto";
         
         console.log(`Requesting airdrop for ${WALLET_ADDRESS}`)
         const pReq = document.createElement('p');
