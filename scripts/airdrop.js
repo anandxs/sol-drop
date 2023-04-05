@@ -43,7 +43,7 @@ form.addEventListener("submit", function(event) {
             console.log(`Tx Complete: https://explorer.solana.com/tx/${signature}?cluster=devnet`)
     
             const pSig = document.createElement('p');
-            pSig.innerHTML = `<bold>Transaction Complete</bold>: <a href="https://explorer.solana.com/tx/${signature}?cluster=devnet">https://explorer.solana.com/tx/${signature}?cluster=devnet</a>`;
+            pSig.innerHTML = `<bold>Transaction Complete</bold>: <a target="_blank" href="https://explorer.solana.com/tx/${signature}?cluster=devnet">https://explorer.solana.com/tx/${signature}?cluster=devnet</a>`;
             pSig.className = "bg-success info-tag";
             statusContent.appendChild(pSig);
         } catch (error) {
