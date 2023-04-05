@@ -25,7 +25,7 @@ form.addEventListener("submit", function(event) {
         
         console.log(`Requesting airdrop for ${WALLET_ADDRESS}`)
         const pReq = document.createElement('p');
-        pReq.innerHTML = `Requesting airdrop for <a href="">${WALLET_ADDRESS}</a>`;
+        pReq.innerHTML = `Requesting airdrop for wallet address:  <a target="_blank" href="https://explorer.solana.com/address/${WALLET_ADDRESS}?cluster=devnet">${WALLET_ADDRESS}</a>`;
         pReq.className = "bg-light info-tag";
         statusContent.appendChild(pReq);
 
